@@ -24,7 +24,8 @@
         <activity android:name=".CityPage" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CategoryPage" />
-        <activity android:name=".EmployeePage"></activity>
+        <activity android:name=".EmployeePage" />
+        <activity android:name=".Employee_page2"></activity>
     </application>
 
 </manifest>

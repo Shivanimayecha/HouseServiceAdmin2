@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#f9006496"
     tools:context="com.example.champ.houseserviceadmin.EmployeePage">
 
@@ -25,12 +25,13 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/txt_registration">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="0dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
@@ -80,23 +81,34 @@
         android:layout_height="1px"
         android:background="@color/white_greyish" />
 
+            <!--android:drawableLeft="@drawable/newcity"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:singleLine="true"
+            android:textSize="16dp"
+            android:hint="City"
 
-    <EditText
+            <Spinner
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
-         android:id="@+id/edt_city"
-         android:drawableLeft="@drawable/newcity"
+         android:id="@+id/spinner"
+
          android:background="@android:color/transparent"
-         android:drawablePadding="8dp"
          android:padding="10dp"
-         android:ems="10"
-         android:textColor="@color/white"
-         android:textColorHint="@color/white"
+
          android:layout_gravity="center_vertical"
          android:layout_marginTop="10dp"
-         android:singleLine="true"
-         android:textSize="16dp"
-         android:hint="City" />
+         />-->
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/spinner"
+
+               >
+            </Spinner>
 
     <View
         android:layout_width="fill_parent"
@@ -275,7 +287,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
                 android:background="@color/white_greyish" />
-
 
             <Button
         android:id="@+id/btn_signup"
