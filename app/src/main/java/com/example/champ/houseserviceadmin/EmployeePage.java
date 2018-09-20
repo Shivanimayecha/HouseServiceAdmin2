@@ -110,7 +110,7 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
 
         city.setOnItemSelectedListener(this);
 
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,cityname);
+        ArrayAdapter aa = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item,cityname);
         city.setAdapter(aa);
 
 
