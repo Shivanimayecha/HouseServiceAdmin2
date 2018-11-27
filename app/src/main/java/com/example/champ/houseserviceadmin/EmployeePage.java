@@ -39,19 +39,21 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
     public static final String MYPREFERENCE = "MyPref";
     public static final String Email = "emailkey";
     public static final String Password = "passkey";
+    String[] country = { "India", "USA", "China", "Japan", "Other"};
     Button btnReg;
     String c_id;
-    List<String> cityname=new ArrayList<>();
-    ArrayList<GetCity>citylist;
+    List<String>cityname=new ArrayList<>();
+    ArrayList<GetCity>citylist=new ArrayList<GetCity>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_page);
 
+        city = (Spinner)findViewById(R.id.spinner1);
         firstname = (EditText)findViewById(R.id.edt_firstname);
         lastname = (EditText)findViewById(R.id.edt_lastname);
-        city = (Spinner)findViewById(R.id.spinner);
+        city = (Spinner)findViewById(R.id.spinner1);
         address1 = (EditText)findViewById(R.id.edt_address1);
         address2 = (EditText)findViewById(R.id.edt_address2);
         contact_no = (EditText)findViewById(R.id.edt_phon);
@@ -110,11 +112,11 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
 
         city.setOnItemSelectedListener(this);
 
-        ArrayAdapter aa = new ArrayAdapter<String>(getBaseContext(),android.R.layout.simple_spinner_item,cityname);
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,cityname);
         city.setAdapter(aa);
 
 
-        citylist=new ArrayList<GetCity>();
+
 
 
 
@@ -133,9 +135,6 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
                 final String uname = username.getText().toString();
                 final String pass = password.getText().toString().trim();
                 String conpass = confrimPass.getText().toString().trim();
-
-
-
 
 
                 if(pass.equals(conpass))
@@ -173,7 +172,7 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
                             Map<String,String>str=new HashMap<>();
                             str.put("firstname",fn);
                             str.put("lastname",ln);
-                           str.put("cid",c_id);
+                            str.put("cid",c_id);
                             str.put("address1",add1);
                             str.put("address2",add2);
                             str.put("contactno",mob_no);
@@ -194,27 +193,21 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
                 {
                     Toast.makeText(EmployeePage.this, "Password not match", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
-
-
-
-
-
-
-
     }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        c_id=citylist.get(i).getC_id().toString();
-        Toast.makeText(this, citylist.get(i).getCity().toString(), Toast.LENGTH_SHORT).show();
+       // c_id=citylist.get(i).getC_id().toString();
+        Toast.makeText(getApplicationContext(),"hi", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, citylist.get(i).getCity().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+        Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_SHORT).show();
     }
 }

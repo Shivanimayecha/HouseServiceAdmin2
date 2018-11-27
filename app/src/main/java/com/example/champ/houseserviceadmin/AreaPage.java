@@ -235,8 +235,8 @@ public class AreaPage extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-    c_id=citylist.get(i).getC_id().toString();
-     //   Toast.makeText(this, , Toast.LENGTH_SHORT).show();
+       c_id=citylist.get(i).getC_id().toString();
+       Toast.makeText(this,c_id , Toast.LENGTH_SHORT).show();
     }
 
     @Override

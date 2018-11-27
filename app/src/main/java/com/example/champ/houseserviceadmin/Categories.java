@@ -33,6 +33,7 @@ public class Categories extends AppCompatActivity {
         area=(CardView)findViewById(R.id.card_area);
         category=(CardView)findViewById(R.id.card_category);
         employee=(CardView)findViewById(R.id.card_employee);
+        worker=(CardView)findViewById(R.id.card_worker);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +99,13 @@ public class Categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Categories.this,EmployeePage.class);
+                startActivity(intent);
+            }
+        });
+        worker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Categories.this,WorkerPage.class);
                 startActivity(intent);
             }
         });

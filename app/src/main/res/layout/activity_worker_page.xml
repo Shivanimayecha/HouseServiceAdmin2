@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9006496"
+    tools:context="com.example.champ.houseserviceadmin.EmployeePage">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_registration"
+        android:text="SIGN UP"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white_greyish"
+        android:textSize="25dp"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/txt_registration">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_firstname"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/name"
+                android:drawablePadding="8dp"
+                android:layout_gravity="center_vertical"
+                android:hint="FirstName"
+                android:ems="10"
+                android:padding="10dp"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:singleLine="true" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_lastname"
+                android:hint="LastName"
+                android:ems="10"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/name"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="16dp"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_phon"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/phone"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="phone"
+                android:hint="Contact no"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_email"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="textEmailAddress"
+                android:hint="Email Id"/>
+
+
+            <!--android:drawableLeft="@drawable/newcity"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:singleLine="true"
+            android:textSize="16dp"
+            android:hint="City"
+
+            <Spinner
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/spinner"
+
+         android:background="@android:color/transparent"
+         android:padding="10dp"
+
+         android:layout_gravity="center_vertical"
+         android:layout_marginTop="10dp"
+         />-->
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/spinner1">
+            </Spinner>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_serviceDes"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Service Description"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_address"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Address"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/spinner2">
+            </Spinner>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_username"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/name"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="textEmailAddress"
+                android:hint="User Name"/>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_pass"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="8dp"
+                android:padding="10dp"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16dp"
+                android:inputType="textPassword"
+                android:hint="Password"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/spinner3">
+            </Spinner>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="REGISTER"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:textColor="#f9006496" />
+
+            <TextView
+                android:id="@+id/already_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Already have Account ? Login here."
+                android:textColor="@color/white_greyish"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

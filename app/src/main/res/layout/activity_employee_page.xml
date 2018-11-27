@@ -40,7 +40,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edt_firstname"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:background="@android:color/transparent"
         android:drawableLeft="@drawable/name"
         android:drawablePadding="8dp"
@@ -105,7 +105,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:id="@+id/spinner"
+                android:id="@+id/spinner1"
 
                >
             </Spinner>

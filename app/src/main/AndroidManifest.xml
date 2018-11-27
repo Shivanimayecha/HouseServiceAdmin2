@@ -25,7 +25,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CategoryPage" />
         <activity android:name=".EmployeePage" />
-        <activity android:name=".Employee_page2"></activity>
+        <activity android:name=".Employee_page2" />
+        <activity android:name=".WorkerPage"></activity>
     </application>
 
 </manifest>
