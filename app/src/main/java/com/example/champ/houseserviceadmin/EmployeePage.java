@@ -88,6 +88,13 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
                         cityname.add(city);
                         citylist.add(c);
                     }
+
+
+                    city.setOnItemSelectedListener(EmployeePage.this);
+
+                    ArrayAdapter aa = new ArrayAdapter(EmployeePage.this,R.layout.spinner_item,cityname);
+                    city.setAdapter(aa);
+
                 }
                 catch (Exception e)
                 {
@@ -106,19 +113,6 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
 
         RequestQueue  queue= Volley.newRequestQueue( EmployeePage.this);
         queue.add(request1);
-
-
-        //Spinner spinner = (Spinner)findViewById(R.id.spinner);
-
-        city.setOnItemSelectedListener(this);
-
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,cityname);
-        city.setAdapter(aa);
-
-
-
-
-
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,17 +191,20 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
         });
     }
 
-
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-       // c_id=citylist.get(i).getC_id().toString();
-        Toast.makeText(getApplicationContext(),"hi", Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, citylist.get(i).getCity().toString(), Toast.LENGTH_SHORT).show();
+
+       /* String item = city.getSelectedItem().toString();
+        Toast.makeText(getApplicationContext(),item, Toast.LENGTH_SHORT).show();
+*/
+
+         c_id=citylist.get(i).getC_id().toString();
+        //Toast.makeText(getApplicationContext(),"hi", Toast.LENGTH_SHORT).show();
+         Toast.makeText(this, citylist.get(i).getCity().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-        Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Select spinner item", Toast.LENGTH_SHORT).show();
     }
 }

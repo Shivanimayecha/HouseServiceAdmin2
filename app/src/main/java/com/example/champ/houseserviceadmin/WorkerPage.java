@@ -44,13 +44,14 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
     public static final String Email = "emailkey";
     public static final String Password = "passkey";
 
-    String c_id;
+    String c_id,aid,categoryid;
     List<String> cityname=new ArrayList<>();
     ArrayList<GetCity>citylist=new ArrayList<GetCity>();
 
     List<String> categoryname=new ArrayList<>();
     ArrayList<data_model>categorylist=new ArrayList<data_model>();
 
+    String[] cityname1;
     List<String> areaname=new ArrayList<>();
     ArrayList<data_model>arealist=new ArrayList<data_model>();
 
@@ -59,18 +60,18 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_page);
 
-        city = (Spinner)findViewById(R.id.spinner1);
-        firstname = (EditText)findViewById(R.id.edt_firstname);
-        lastname = (EditText)findViewById(R.id.edt_lastname);
-        city = (Spinner)findViewById(R.id.spinner1);
-        category=(Spinner)findViewById(R.id.spinner2);
-        area=(Spinner)findViewById(R.id.spinner3);
-        address = (EditText)findViewById(R.id.edt_address1);
-        contact_no = (EditText)findViewById(R.id.edt_phon);
-        email = (EditText)findViewById(R.id.edt_email);
-        username = (EditText)findViewById(R.id.edt_username);
-        password = (EditText)findViewById(R.id.edt_pass);
+        firstname = (EditText)findViewById(R.id.edt_firstnam);
+        lastname = (EditText)findViewById(R.id.edt_lastnam);
+        contact_no = (EditText)findViewById(R.id.edt_phn);
+        email = (EditText)findViewById(R.id.edt_mail);
+        category=(Spinner)findViewById(R.id.spinner_category);
         serviceDes=(EditText)findViewById(R.id.edt_serviceDes);
+        address = (EditText)findViewById(R.id.edt_adres);
+        area=(Spinner)findViewById(R.id.spinner_area);
+        city = (Spinner)findViewById(R.id.spinner_city);
+        username = (EditText)findViewById(R.id.edt_uname);
+        password = (EditText)findViewById(R.id.edt_pas);
+
         btnReg = (Button)findViewById(R.id.btn_signup);
 
         sharedPreferences = getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
@@ -94,8 +95,16 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                         c.setC_id(id);
                         c.setCity(city);
                         cityname.add(city);
+
                         citylist.add(c);
                     }
+                    Log.e("cityname321",">>>>>"+cityname);
+                    city.setOnItemSelectedListener(WorkerPage.this);
+
+                    Log.e("cityname123",">>>>>"+cityname);
+                    ArrayAdapter aa = new ArrayAdapter(WorkerPage.this,R.layout.spinner_item,cityname);
+                    city.setAdapter(aa);
+
                 }
                 catch (Exception e)
                 {
@@ -114,12 +123,6 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
 
         RequestQueue  queue= Volley.newRequestQueue( WorkerPage.this);
         queue.add(requestCity);
-
-
-
-        city.setOnItemSelectedListener(this);
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,cityname);
-        city.setAdapter(aa);
 
         //for category spinner
         StringRequest requestCategory=new StringRequest(Request.Method.GET, CATEGORY_URL, new Response.Listener<String>() {
@@ -142,6 +145,10 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                         categoryname.add(category);
                         categorylist.add(c);
                     }
+
+                    category.setOnItemSelectedListener(WorkerPage.this);
+                    ArrayAdapter aa1 = new ArrayAdapter(WorkerPage.this,R.layout.spinner_item,categoryname);
+                    category.setAdapter(aa1);
                 }
                 catch (Exception e)
                 {
@@ -159,11 +166,6 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
 
         RequestQueue  queue1 = Volley.newRequestQueue( WorkerPage.this);
         queue1.add(requestCategory);
-
-        category.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-        ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,categoryname);
-        category.setAdapter(aa1);
-
 
         //for area spinner
 
@@ -187,6 +189,11 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                         areaname.add(area);
                         arealist.add(c);
                     }
+
+                    area.setOnItemSelectedListener(WorkerPage.this);
+                    ArrayAdapter aa2 = new ArrayAdapter(WorkerPage.this,R.layout.spinner_item,areaname);
+                    area.setAdapter(aa2);
+
                 }
                 catch (Exception e)
                 {
@@ -205,24 +212,18 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
         RequestQueue  queue2 = Volley.newRequestQueue( WorkerPage.this);
         queue2.add(requestArea);
 
-        area.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-        ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,areaname);
-        area.setAdapter(aa2);
-
-
-
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 final String fn = firstname.getText().toString();
                 final String ln = lastname.getText().toString();
-                //final String cn = city.getText().toString();
-                final String add1 = address.getText().toString();
                 final String mob_no = contact_no.getText().toString();
                 final String email_id = email.getText().toString();
-                final String uname = username.getText().toString();
                 final String service=serviceDes.getText().toString();
+                //final String cn = city.getText().toString();
+                final String add1 = address.getText().toString();
+                final String uname = username.getText().toString();
                 final String pass = password.getText().toString().trim();
 
 
@@ -239,8 +240,8 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                                 editor.putString("reg","1");
                                 editor.commit();
                                 Toast.makeText(WorkerPage.this, "Register Successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(WorkerPage.this,Employee_page2.class);
-                                startActivity(intent);
+                                //Intent intent = new Intent(WorkerPage.this,Employee_page2.class);
+                               // startActivity(intent);
                             }
                             else
                             {
@@ -262,9 +263,11 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                             str.put("lastname",ln);
                             str.put("contactno",mob_no);
                             str.put("email",email_id);
-                            str.put("cid",c_id);
+                            str.put("categoryid",categoryid);
                             str.put("serviceDes",service);
-                            str.put("address1",add1);
+                            str.put("address",add1);
+                            str.put("aid",aid);
+                            str.put("cid",c_id);
                             str.put("username",uname);
                             str.put("password",pass);
 
@@ -277,15 +280,34 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
 
             }
         });
-
-
-
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(getApplicationContext(),"hiiii", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"hiiii", Toast.LENGTH_SHORT).show();
+        switch(adapterView.getId()){
+            case R.id.spinner_category :
+
+                //select item for category spinner.
+                categoryid=categorylist.get(i).getId().toString();
+                Toast.makeText(getApplicationContext(),categorylist.get(i).getCategory(), Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.spinner_area :
+
+                //select item for area spineer.
+                aid=arealist.get(i).getId().toString();
+                Toast.makeText(getApplicationContext(),arealist.get(i).getArea(), Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.spinner_city :
+
+                //select item for city spinner
+                c_id=citylist.get(i).getC_id().toString();
+                Toast.makeText(getApplicationContext(),citylist.get(i).getCity(), Toast.LENGTH_SHORT).show();
+                break;
+        }
 
     }
 

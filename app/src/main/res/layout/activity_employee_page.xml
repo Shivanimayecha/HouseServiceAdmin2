@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_registration"
-        android:text="SIGN UP"
+        android:text="Employee SIGN UP"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
@@ -104,10 +104,9 @@
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:id="@+id/spinner1"
-
-               >
+                android:backgroundTint="@color/white_greyish">
             </Spinner>
 
     <View

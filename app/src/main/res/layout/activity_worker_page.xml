@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_registration"
-        android:text="SIGN UP"
+        android:text=" WORKER SIGN UP"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
@@ -39,7 +39,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_firstname"
+                android:id="@+id/edt_firstnam"
                 android:layout_marginTop="30dp"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/name"
@@ -62,7 +62,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_lastname"
+                android:id="@+id/edt_lastnam"
                 android:hint="LastName"
                 android:ems="10"
                 android:background="@android:color/transparent"
@@ -84,7 +84,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_phon"
+                android:id="@+id/edt_phn"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/phone"
                 android:drawablePadding="8dp"
@@ -105,7 +105,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_email"
+                android:id="@+id/edt_mail"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/email"
                 android:drawablePadding="8dp"
@@ -147,8 +147,9 @@
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/spinner1">
+                android:layout_height="50dp"
+                android:backgroundTint="@color/white_greyish"
+                android:id="@+id/spinner_category">
             </Spinner>
 
             <View
@@ -182,7 +183,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_address"
+                android:id="@+id/edt_adres"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/location"
                 android:drawablePadding="8dp"
@@ -202,8 +203,21 @@
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/spinner2">
+                android:layout_height="50dp"
+                android:id="@+id/spinner_area"
+                android:backgroundTint="@color/white_greyish">
+            </Spinner>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/white_greyish" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/white_greyish"
+                android:id="@+id/spinner_city">
             </Spinner>
 
             <View
@@ -214,7 +228,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_username"
+                android:id="@+id/edt_uname"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/name"
                 android:drawablePadding="8dp"
@@ -241,7 +255,7 @@
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edt_pass"
+                android:id="@+id/edt_pas"
                 android:background="@android:color/transparent"
                 android:drawableLeft="@drawable/password"
                 android:drawablePadding="8dp"
@@ -253,18 +267,6 @@
                 android:textSize="16dp"
                 android:inputType="textPassword"
                 android:hint="Password"/>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1px"
-                android:background="@color/white_greyish" />
-
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:id="@+id/spinner3">
-            </Spinner>
 
             <View
                 android:layout_width="fill_parent"
