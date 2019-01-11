@@ -39,7 +39,7 @@ public class EmployeePage extends AppCompatActivity  implements AdapterView.OnIt
     public static final String MYPREFERENCE = "MyPref";
     public static final String Email = "emailkey";
     public static final String Password = "passkey";
-    String[] country = { "India", "USA", "China", "Japan", "Other"};
+    //String[] country = { "India", "USA", "China", "Japan", "Other"};
     Button btnReg;
     String c_id;
     List<String>cityname=new ArrayList<>();

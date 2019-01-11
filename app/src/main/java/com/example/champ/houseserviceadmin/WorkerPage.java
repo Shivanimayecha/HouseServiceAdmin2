@@ -51,7 +51,7 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
     List<String> categoryname=new ArrayList<>();
     ArrayList<data_model>categorylist=new ArrayList<data_model>();
 
-    String[] cityname1;
+   // String[] cityname1;
     List<String> areaname=new ArrayList<>();
     ArrayList<data_model>arealist=new ArrayList<data_model>();
 
