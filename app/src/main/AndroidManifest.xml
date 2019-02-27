@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Employee_Categories">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +22,13 @@
         <activity android:name=".AreaPage" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".CityPage" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Employee_Categories" />
         <activity android:name=".CategoryPage" />
         <activity android:name=".EmployeePage" />
         <activity android:name=".Employee_page2" />
         <activity android:name=".WorkerPage" />
         <activity android:name=".Categories" />
-        <activity android:name=".Employee_ChangePass"></activity>
+        <activity android:name=".Employee_ChangePass" />
     </application>
 
 </manifest>

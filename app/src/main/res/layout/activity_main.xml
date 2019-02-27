@@ -8,6 +8,29 @@
     android:padding="20dp"
     tools:context="com.example.champ.houseserviceadmin.MainActivity">
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdlogin">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/adminlogin"
+            android:text="Admin Login"
+            android:textColor="@color/white"
+            android:paddingLeft="7dp"
+            android:textSize="18sp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/employeelogin"
+            android:text="Employee Login"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:paddingLeft="7dp"/>
+
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="fill_parent"
