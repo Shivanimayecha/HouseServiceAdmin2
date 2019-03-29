@@ -27,6 +27,16 @@ public class Employee_Categories extends AppCompatActivity {
         user_request=(CardView)findViewById(R.id.card_viewUserReq);
 
 
+        user_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Employee_Categories.this,ViewRequestPage.class);
+                startActivity(intent);
+            }
+        });
+
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

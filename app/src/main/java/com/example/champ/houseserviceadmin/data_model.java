@@ -12,6 +12,18 @@ public class data_model {
     String desc;
     String firstname;
     String lastname;
+    String username;
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
 
     public String getFirstname() {
         return firstname;

@@ -42,7 +42,7 @@ public class CityPage extends AppCompatActivity {
     EditText inputCity;
     private RecyclerView recyclerView;
   //  private ImageView edit,delete;
- public data_model d;
+    public data_model d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

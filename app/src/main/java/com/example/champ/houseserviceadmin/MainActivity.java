@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rd_login;
     RadioButton rb_employee, rb_admin;
     TextView txtLogin;
+    CheckBox checkBox_showPass;
 
     public static final String MyPREFERENCES = "MyPrefs";
     public static final String Email = "emailKey";
@@ -54,11 +59,32 @@ public class MainActivity extends AppCompatActivity {
 
         txtLogin = (TextView) findViewById(R.id.txtLogin);
 
-        pref = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        // String strng = pref.getString("login", "");
-
         rb_employee = (RadioButton) findViewById(R.id.employeelogin);
         rb_admin = (RadioButton) findViewById(R.id.adminlogin);
+
+        checkBox_showPass=(CheckBox)findViewById(R.id.show_hidePass);
+
+        pref = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        final String strng = pref.getString("emailKey", "");
+
+
+
+        checkBox_showPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(!b)
+                {
+                    inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                }
+                else
+                {
+                    inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                }
+            }
+        });
+
 
         rb_admin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
                                         editor.putString("login", "1");
                                         editor.commit();
                                         Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Login User : " + strng,Toast.LENGTH_LONG).show();
+
                                         Intent intent = new Intent(MainActivity.this, Categories.class);
                                         startActivity(intent);
                                     } else {
@@ -118,66 +146,70 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             }
+
         });
+
         rb_employee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    @Override
+                    public void onClick(View view) {
 
-                boolean checked = ((RadioButton) view).isChecked();
-                if (checked) {
-                    txtLogin.setText("Employee Login");
-                   // Toast.makeText(MainActivity.this, "Employee", Toast.LENGTH_SHORT).show();
-                    btnlogin.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                            final String email = inputEmail.getText().toString();
-                            final String pass = inputPassword.getText().toString();
-
-                            StringRequest request = new StringRequest(Request.Method.POST, URL_EMPLOYEE, new Response.Listener<String>() {
+                        // pref =
+                        boolean checked = ((RadioButton) view).isChecked();
+                        if (checked) {
+                            txtLogin.setText("Employee Login");
+                            // Toast.makeText(MainActivity.this, "Employee", Toast.LENGTH_SHORT).show();
+                            btnlogin.setOnClickListener(new View.OnClickListener() {
                                 @Override
-                                public void onResponse(String response) {
+                                public void onClick(View view) {
 
-                                    if (response.trim().equals("success")) {
-                                        SharedPreferences.Editor editor = pref.edit();
-                                        editor.putString(Email, email);
-                                        editor.putString(Password, pass);
-                                        editor.putString("login", "1");
-                                        editor.commit();
-                                        Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(MainActivity.this, Employee_Categories.class);
-                                        startActivity(intent);
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                    final String email = inputEmail.getText().toString();
+                                    final String pass = inputPassword.getText().toString();
 
+                                    StringRequest request = new StringRequest(Request.Method.POST, URL_EMPLOYEE, new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+
+                                            if (response.trim().equals("success")) {
+                                                SharedPreferences.Editor editor = pref.edit();
+                                                editor.putString(Email, email);
+                                                editor.putString(Password, pass);
+                                                editor.putString("login", "1");
+                                                editor.commit();
+                                                Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(MainActivity.this, "Login User : " + strng, Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(MainActivity.this, Employee_Categories.class);
+                                                startActivity(intent);
+                                            } else {
+                                                Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+
+                                            }
+
+                                        }
+                                    }, new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+
+                                            Toast.makeText(MainActivity.this, "Error" + error, Toast.LENGTH_LONG).show();
+                                        }
                                     }
+                                    ) {
+                                        @Override
+                                        protected Map<String, String> getParams() throws AuthFailureError {
+                                            Map<String, String> str = new HashMap<>();
+                                            str.put("email", email);
+                                            str.put("password", pass);
+                                            return str;
+                                        }
+                                    };
 
+                                    RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                                    queue.add(request);
                                 }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-
-                                    Toast.makeText(MainActivity.this, "Error" + error, Toast.LENGTH_LONG).show();
-                                }
-                            }
-                            ) {
-                                @Override
-                                protected Map<String, String> getParams() throws AuthFailureError {
-                                    Map<String, String> str = new HashMap<>();
-                                    str.put("email", email);
-                                    str.put("password", pass);
-                                    return str;
-                                }
-                            };
-
-                            RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                            queue.add(request);
+                            });
                         }
-                    });
-                }
 
-            }
-        });
+                    }
+                });
 
 
         /*rb_admin.setOnClickListener(radio_listener);

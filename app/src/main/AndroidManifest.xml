@@ -29,6 +29,7 @@
         <activity android:name=".WorkerPage" />
         <activity android:name=".Categories" />
         <activity android:name=".Employee_ChangePass" />
+        <activity android:name=".ViewRequestPage"></activity>
     </application>
 
 </manifest>
