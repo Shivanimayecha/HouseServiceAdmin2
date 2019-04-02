@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ViewRequestPage">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:id="@+id/rv_viewReq">
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
 
-    </android.support.v7.widget.RecyclerView>
+        </ListView>
 
     <include layout="@layout/toolbar"/>
 

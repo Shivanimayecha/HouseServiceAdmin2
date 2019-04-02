@@ -7,12 +7,32 @@ package com.example.champ.houseserviceadmin;
 public class data_model {
     String city;
     String id;
+    String w_id;
+
+    public String getW_id() {
+        return w_id;
+    }
+
+    public void setW_id(String w_id) {
+        this.w_id = w_id;
+    }
+
     String area;
     String category;
     String desc;
     String firstname;
     String lastname;
     String username;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    String address;
 
 
     public String getUsername() {

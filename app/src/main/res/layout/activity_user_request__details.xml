@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserRequest_Details">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txt_uname"
+        android:text="Username:-"
+        android:textSize="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/uname"
+        android:text="Username"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/txt_desciption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Description:-"
+        android:textSize="20dp"
+        tools:ignore="RtlCompat" />
+    <TextView
+        android:id="@+id/desc"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uname"
+        android:layout_alignParentStart="true"
+        android:text="Description"
+        android:textSize="20dp"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_desciption"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="Address:-"
+        android:textSize="20dp"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desc"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="18dp"
+        android:text="Address"
+        android:textSize="20dp"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/txt_wrkr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_address"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Select Worker :-"
+        android:textSize="20dp"
+        tools:ignore="RtlCompat" />
+
+
+    <Spinner
+        android:id="@+id/spinner_wrkr"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="24dp">
+
+    </Spinner>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_wrkrAllo"
+        android:text="Worker Allocate"
+        android:layout_below="@+id/spinner_wrkr"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

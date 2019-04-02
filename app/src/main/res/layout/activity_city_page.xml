@@ -9,7 +9,8 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="56dp"
+        android:background="#f9acc5d1"
         android:id="@+id/rv">
 
     </android.support.v7.widget.RecyclerView>
@@ -18,3 +19,4 @@
 
 
 </RelativeLayout>
+

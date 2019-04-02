@@ -226,6 +226,15 @@ public class WorkerPage extends AppCompatActivity  implements AdapterView.OnItem
                 final String uname = username.getText().toString();
                 final String pass = password.getText().toString().trim();
 
+                firstname.setText("");
+                lastname.setText("");
+                contact_no.setText("");
+                email.setText("");
+                serviceDes.setText("");
+                address.setText("");
+                username.setText("");
+                password.setText("");
+
 
 
                     StringRequest request = new StringRequest(Request.Method.POST, WorkerRegi_URL, new Response.Listener<String>() {
